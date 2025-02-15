@@ -12,9 +12,9 @@
     {
       "identity" : "epubkit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/witekbobrowski/EPUBKit.git",
+      "location" : "https://github.com/ColtonHerrod/EPUBKit.git",
       "state" : {
-        "revision" : "c8148577adc407ab1d4fcd45ceb58b54fb96b344",
+        "revision" : "0f7c196c87f79daa66baf3b807150c045543686e",
         "version" : "0.4.0"
       }
     },
