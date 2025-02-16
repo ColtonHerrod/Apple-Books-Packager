@@ -12,31 +12,31 @@ class Book: Decodable {
     var title: String
     var author: String
     var path: String
-    var service_name: String
+    var service: Service
 
-    init(title: String, author: String, path: String, service_name: String) {
+    init(title: String, author: String, path: String, service: Service) {
         self.title = title
         self.author = author
         self.path = path
-        self.service_name = service_name
+        self.service = service
     }
 
-    func copy(destination_path: String) {
-        print("Copying \(title) to \(destination_path)...")
-        if destination_path == "" {
+    func copy(destinationPath: String) {
+        print("Copying \(title) to \(destinationPath)...")
+        if destinationPath == "" {
             print("Please provide a destination.")
             return
         }
 
         let fileManager = FileManager.default
         let bookURL = URL(fileURLWithPath: "\(path)/\(title).epub")
-        let destinationURL = URL(fileURLWithPath: "\(destination_path)/\(title).epub")
+        let destinationURL = URL(fileURLWithPath: "\(destinationPath)/\(title).epub")
 
         do {
             try fileManager.copyItem(at: bookURL, to: destinationURL)
-            print("Copied \(title) to \(destination_path).")
+            print("Copied \(title) to \(destinationPath).")
         } catch {
-            print("Failed to copy \(title) to \(destination_path): \(error)")
+            print("Failed to copy \(title) to \(destinationPath): \(error)")
         }
     }
 }

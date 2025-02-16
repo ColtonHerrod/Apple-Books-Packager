@@ -1,7 +1,7 @@
 import ArgumentParser
 
 @main
-struct cli: ParsableCommand {
+struct PackagerCli: ParsableCommand {
   @Option(help: "List of books to interact with.")
   public var bookList: String?
 
@@ -9,9 +9,9 @@ struct cli: ParsableCommand {
   public var action: String?
 
   @Option(help: "Destination for the books.")
-  public var to: String?
+  public var destination: String?
   @Option(help: "Source for the books.")
-  public var from: String?
+  public var source: String?
 
   var appleBooks: AppleBooks? = try? AppleBooks()
 
@@ -21,13 +21,11 @@ struct cli: ParsableCommand {
 
     if action == "copy" {
       for book in bookList!.split(separator: ",") {
-        copyBook(bookTitle: String(book), to: to!)
+        copyBook(bookTitle: String(book), destination: destination!)
       }
-    }
-    else if action == "remove" {
+    } else if action == "remove" {
       removeBook()
-    }
-    else if action == "list" {
+    } else if action == "list" {
       print("Kobo Books:")
       // let koboList: [Book] = kobo.listBooks()
       // for book in koboList {
@@ -38,36 +36,36 @@ struct cli: ParsableCommand {
       for book in appleBooksList ?? [] {
         print("Author: \(book.author), Title: \(book.title)")
       }
-    }
-    else if action == "list_services" || action == "services" {
+    } else if action == "list_services" || action == "services" {
       print("Kobo")
       print("Apple Books")
-      print("Kindle")  
+      print("Kindle")
       print("Calibre")
-    }
-    else {
+    } else {
       print("Please provide an action.")
     }
   }
 
-  func copyBook(bookTitle: String, to: String) {
-    print("Copying \(bookTitle) to \(to)...")
+  func copyBook(bookTitle: String, destination: String) {
+    print("Copying \(bookTitle) to \(destination)...")
     let book = getAllBooks().first { $0.title == bookTitle }
     if book == nil {
       print("Book not found.")
       return
     }
-    guard let destination_path = (book?.service_name == "Apple Books" ? appleBooks?.defaultPath : "") else { return  }
-    book!.copy(destination_path: destination_path)
+    guard let destinationPath = (
+      book?.service_name == "Apple Books" ? appleBooks?.defaultPath : ""
+    ) else { return }
+    book!.copy(destinationPath: destinationPath)
   }
-  
+
   func getAllBooks() -> [Book] {
     print("Getting all books...")
     var books: [Book] = []
     books.append(contentsOf: appleBooks?.listBooks() ?? [])
     return books
   }
-  
+
   func removeBook() {
     print("Removing book...")
   }

@@ -17,6 +17,24 @@
             "name": "Release cli",
             "program": "${workspaceFolder:Apple Books Packager}/.build/release/cli",
             "preLaunchTask": "swift: Build Release cli"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Apple Books Packager}",
+            "name": "Debug PackagerCli",
+            "program": "${workspaceFolder:Apple Books Packager}/.build/debug/PackagerCli",
+            "preLaunchTask": "swift: Build Debug PackagerCli"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Apple Books Packager}",
+            "name": "Release PackagerCli",
+            "program": "${workspaceFolder:Apple Books Packager}/.build/release/PackagerCli",
+            "preLaunchTask": "swift: Build Release PackagerCli"
         }
     ]
 }

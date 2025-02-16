@@ -17,6 +17,9 @@ class Kobo: Service {
     }
 
     init() {
-        super.init(defaultPath: FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Kobo").path, serviceName: "Kobo")
+        super.init(
+            defaultPath: FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Kobo").path,
+            serviceName: "Kobo"
+        )
     }
 }
