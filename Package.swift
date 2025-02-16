@@ -6,7 +6,6 @@ import PackageDescription
 let package = Package(
     name: "cli",
     dependencies: [
-      .package(url: "https://github.com/apple/example-package-figlet", branch: "main"),
       .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
       .package(url: "https://github.com/tadija/AEXML.git", branch: "master"),
       .package(url: "https://github.com/ColtonHerrod/EPUBKit.git", .upToNextMajor(from: "0.4.0"))
@@ -17,11 +16,15 @@ let package = Package(
         .executableTarget(
             name: "cli",
             dependencies: [
-                .product(name: "Figlet", package: "example-package-figlet"),
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
                 .product(name: "AEXML", package: "AEXML"),
                 .product(name: "EPUBKit", package: "EPUBKit")
             ],
             path: "Sources"),
+        .testTarget(
+            name: "PackagerTests",
+            dependencies: ["cli"],
+            resources: [.copy("Resources")]
+        )    
     ]
 )

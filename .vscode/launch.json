@@ -5,24 +5,6 @@
             "request": "launch",
             "args": [],
             "cwd": "${workspaceFolder:Apple Books Packager}",
-            "name": "Debug MyCLI",
-            "program": "${workspaceFolder:Apple Books Packager}/.build/debug/MyCLI",
-            "preLaunchTask": "swift: Build Debug MyCLI"
-        },
-        {
-            "type": "lldb",
-            "request": "launch",
-            "args": [],
-            "cwd": "${workspaceFolder:Apple Books Packager}",
-            "name": "Release MyCLI",
-            "program": "${workspaceFolder:Apple Books Packager}/.build/release/MyCLI",
-            "preLaunchTask": "swift: Build Release MyCLI"
-        },
-        {
-            "type": "lldb",
-            "request": "launch",
-            "args": [],
-            "cwd": "${workspaceFolder:Apple Books Packager}",
             "name": "Debug cli",
             "program": "${workspaceFolder:Apple Books Packager}/.build/debug/cli",
             "preLaunchTask": "swift: Build Debug cli"
