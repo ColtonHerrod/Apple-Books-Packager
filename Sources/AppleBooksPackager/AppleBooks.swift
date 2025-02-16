@@ -21,7 +21,14 @@ class AppleBooks: Service {
             let libraryURL = try fileManager.url(
                 for: .libraryDirectory, in: .userDomainMask, appropriateFor: nil, create: false
             )
-            let booksURL = libraryURL.appendingPathComponent(Constants.appleBooksBasePath)
+            var booksURL: URL
+            // Inelegant way to check if tests are running
+            if ProcessInfo.processInfo.environment["IS_UNIT_TESTING"] == "1" {
+                // Code only executes when tests are running
+                booksURL = URL(fileURLWithPath: "./Tests/PackagerTests/Books")
+            } else {
+                booksURL = libraryURL.appendingPathComponent(Constants.appleBooksBasePath)
+            }
             super.init(defaultPath: booksURL.path, serviceName: "Apple Books")
         } catch {
             print("Error obtaining library URL: \(error)")

@@ -24,7 +24,7 @@ let package = Package(
         .testTarget(
             name: "PackagerTests",
             dependencies: ["PackagerCli"],
-            resources: [.copy("Resources")]
+            resources: [.copy("Books")]
         )    
     ]
 )
