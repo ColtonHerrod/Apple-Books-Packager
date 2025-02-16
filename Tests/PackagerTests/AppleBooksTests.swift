@@ -15,6 +15,12 @@ import Testing
 
 @Test func testAppleBooks() {
     let appleBooks = try? AppleBooks()
+    let book = Book(title: "Metamorphoses", author: "Ovid", path: "Test", serviceName: "Apple Books")
     #expect(appleBooks != nil)
-    #expect(appleBooks?.listBooks() != nil)
+    let bookList = appleBooks?.listBooks()
+    #expect(bookList != nil)
+    #expect(bookList?.count == 1)
+    #expect(bookList?.first?.title == book.title)
+    #expect(bookList?.first?.author == book.author)
+    #expect(bookList?.first?.serviceName == book.serviceName)
 }
