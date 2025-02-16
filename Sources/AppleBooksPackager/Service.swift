@@ -30,20 +30,16 @@ class Service: Decodable {
         let fileManager = FileManager.default
         var books: [Book] = []
         do {
-            // print("Getting books at:", path)
             let bookPaths = try fileManager.contentsOfDirectory(atPath: path)
-            // print(book_paths)
             for book: String in bookPaths {
                 let bookUrl = URL(fileURLWithPath: "\(path)/\(book)")
                 if bookUrl.pathExtension != "epub" {
-                    // print("Skipping non-EPUB file:", book_url.path)
                     continue
                 }
                 guard let book = EPUBDocument(url: bookUrl) else {
                     print("Failed to open book at \(bookUrl.path)")
                     continue
                 }
-                // let book_metadata = book!.metadata
                 let bookTitle = (book.title)!
                 let bookAuthor = (book.author)!
                 let newBook: Book = Book(

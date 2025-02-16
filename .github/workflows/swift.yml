@@ -20,6 +20,7 @@ jobs:
           args: --strict
   build:
     runs-on: macos-15
+    environment: testing
     steps:
     - uses: actions/checkout@v4
     - name: Build
