@@ -6,13 +6,15 @@
 //
 
 import Testing
+@testable import PackagerCli
 
 @Test func testExample() {
     let result = 1 + 1
     #expect(result == 2)
 }
 
-@Test func testExample2() {
-    let result = 1 + 3
-    #expect(result == 4)
+@Test func testAppleBooks() {
+    let appleBooks = try? AppleBooks()
+    #expect(appleBooks != nil)
+    #expect(appleBooks?.listBooks() != nil)
 }

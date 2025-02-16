@@ -15,12 +15,10 @@ class AppleBooks: Service {
         let defaultPath = try container.decode(String.self, forKey: .defaultPath)
         super.init(defaultPath: defaultPath, serviceName: "Apple Books")
     }
-
+    
     init() throws {
         do {
-            let libraryURL = try fileManager.url(
-                for: .libraryDirectory, in: .userDomainMask, appropriateFor: nil, create: false
-            )
+            let libraryURL = try fileManager.url(for: .libraryDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             let booksURL = libraryURL.appendingPathComponent(Constants.appleBooksBasePath)
             super.init(defaultPath: booksURL.path, serviceName: "Apple Books")
         } catch {
