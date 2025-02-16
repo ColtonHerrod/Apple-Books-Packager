@@ -12,13 +12,13 @@ class Book: Decodable {
     var title: String
     var author: String
     var path: String
-    var service: Service
+    var serviceName: String
 
-    init(title: String, author: String, path: String, service: Service) {
+    init(title: String, author: String, path: String, serviceName: String) {
         self.title = title
         self.author = author
         self.path = path
-        self.service = service
+        self.serviceName = serviceName
     }
 
     func copy(destinationPath: String) {

@@ -54,7 +54,7 @@ struct PackagerCli: ParsableCommand {
       return
     }
     guard let destinationPath = (
-      book?.service_name == "Apple Books" ? appleBooks?.defaultPath : ""
+      book?.serviceName == "Apple Books" ? appleBooks?.defaultPath : ""
     ) else { return }
     book!.copy(destinationPath: destinationPath)
   }

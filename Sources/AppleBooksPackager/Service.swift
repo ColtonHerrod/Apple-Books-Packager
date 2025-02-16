@@ -47,7 +47,7 @@ class Service: Decodable {
                 let bookTitle = (book.title)!
                 let bookAuthor = (book.author)!
                 let newBook: Book = Book(
-                    title: bookTitle, author: bookAuthor, path: path, service_name: serviceName
+                    title: bookTitle, author: bookAuthor, path: path, serviceName: serviceName
                 )
                 books.append(newBook)
             }
