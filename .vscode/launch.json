@@ -35,6 +35,78 @@
             "name": "Release PackagerCli",
             "program": "${workspaceFolder:Apple Books Packager}/.build/release/PackagerCli",
             "preLaunchTask": "swift: Build Release PackagerCli"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Apple Books Packager}",
+            "name": "Debug AppleBooksPackagerApp",
+            "program": "${workspaceFolder:Apple Books Packager}/.build/debug/AppleBooksPackagerApp",
+            "preLaunchTask": "swift: Build Debug AppleBooksPackagerApp"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Apple Books Packager}",
+            "name": "Release AppleBooksPackagerApp",
+            "program": "${workspaceFolder:Apple Books Packager}/.build/release/AppleBooksPackagerApp",
+            "preLaunchTask": "swift: Build Release AppleBooksPackagerApp"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Apple Books Packager}",
+            "name": "Debug AppleBooksPackager.Cli",
+            "program": "${workspaceFolder:Apple Books Packager}/.build/debug/AppleBooksPackager.Cli",
+            "preLaunchTask": "swift: Build Debug AppleBooksPackager.Cli"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Apple Books Packager}",
+            "name": "Release AppleBooksPackager.Cli",
+            "program": "${workspaceFolder:Apple Books Packager}/.build/release/AppleBooksPackager.Cli",
+            "preLaunchTask": "swift: Build Release AppleBooksPackager.Cli"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Apple Books Packager}",
+            "name": "Debug AppleBooksPackager.App",
+            "program": "${workspaceFolder:Apple Books Packager}/.build/debug/AppleBooksPackager.App",
+            "preLaunchTask": "swift: Build Debug AppleBooksPackager.App"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Apple Books Packager}",
+            "name": "Release AppleBooksPackager.App",
+            "program": "${workspaceFolder:Apple Books Packager}/.build/release/AppleBooksPackager.App",
+            "preLaunchTask": "swift: Build Release AppleBooksPackager.App"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Apple Books Packager}",
+            "name": "Debug AppleBooksPackager",
+            "program": "${workspaceFolder:Apple Books Packager}/.build/debug/AppleBooksPackager",
+            "preLaunchTask": "swift: Build Debug AppleBooksPackager"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Apple Books Packager}",
+            "name": "Release AppleBooksPackager",
+            "program": "${workspaceFolder:Apple Books Packager}/.build/release/AppleBooksPackager",
+            "preLaunchTask": "swift: Build Release AppleBooksPackager"
         }
     ]
 }

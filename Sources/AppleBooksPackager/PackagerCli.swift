@@ -1,7 +1,8 @@
 import ArgumentParser
+import BookLib
 
 @main
-struct PackagerCli: ParsableCommand {
+struct PackagerCli: ParsableCommand, Decodable {
   @Option(help: "List of books to interact with.")
   public var bookList: String?
 
@@ -13,7 +14,10 @@ struct PackagerCli: ParsableCommand {
   @Option(help: "Source for the books.")
   public var source: String?
 
-  var appleBooks: AppleBooks? = try? AppleBooks()
+  var appleBooks: AppleBooks = try! AppleBooks()
+
+  public init() {
+  }
 
   public func run() throws {
     // let kobo = Kobo()
@@ -32,8 +36,8 @@ struct PackagerCli: ParsableCommand {
       //   print(book)
       // }
       print("Apple Books:")
-      let appleBooksList = appleBooks?.listBooks()
-      for book in appleBooksList ?? [] {
+      let appleBooksList = appleBooks.getBooks()
+      for book in appleBooksList {
         print("Author: \(book.author), Title: \(book.title)")
       }
     } else if action == "list_services" || action == "services" {
@@ -53,16 +57,16 @@ struct PackagerCli: ParsableCommand {
       print("Book not found.")
       return
     }
-    guard let destinationPath = (
-      book?.serviceName == "Apple Books" ? appleBooks?.defaultPath : ""
-    ) else { return }
+    let destinationPath = (
+      book?.serviceName == "Apple Books" ? self.appleBooks.defaultPath : ""
+    )
     book!.copy(destinationPath: destinationPath)
   }
 
   func getAllBooks() -> [Book] {
     print("Getting all books...")
     var books: [Book] = []
-    books.append(contentsOf: appleBooks?.listBooks() ?? [])
+    books.append(contentsOf: appleBooks.getBooks())
     return books
   }
 

@@ -5,8 +5,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/tadija/AEXML.git",
       "state" : {
-        "branch" : "master",
-        "revision" : "bcdfd485a41a0bba5cfc61e3dc5204308728b7d0"
+        "revision" : "db806756c989760b35108146381535aec231092b",
+        "version" : "4.7.0"
+      }
+    },
+    {
+      "identity" : "booklib",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ColtonHerrod/BookLib.git",
+      "state" : {
+        "revision" : "78be3f1c103a78d75538e25801eef50649cb7730",
+        "version" : "0.0.2"
       }
     },
     {
